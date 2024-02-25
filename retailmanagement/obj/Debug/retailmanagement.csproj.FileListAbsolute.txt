@@ -1,0 +1,10 @@
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\bin\Debug\retailmanagement.exe.config
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\bin\Debug\retailmanagement.exe
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\bin\Debug\retailmanagement.pdb
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.csproj.AssemblyReference.cache
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.Form1.resources
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.Properties.Resources.resources
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.csproj.GenerateResource.cache
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.csproj.CoreCompileInputs.cache
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.exe
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.pdb
