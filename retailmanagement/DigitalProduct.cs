@@ -25,5 +25,6 @@ namespace retailmanagement
             if (this.LimitedStock == true)  {  return this.Stock;  }
             else { return null; }
         }
+        public DigitalProduct(string name) : base(name) { }
     }
 }

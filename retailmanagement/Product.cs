@@ -10,12 +10,16 @@ namespace retailmanagement
     {
         private int SellPrice;
         private int BuyPrice;
-        private string Name = nameof();
+        private string Name;
 
         public void setSellPrice(int price) {  this.SellPrice = price;  }
         public void setBuyPrice(int price) {  this.BuyPrice = price; }
         public int getSellPrice {  get { return this.SellPrice; } }
         public int getBuyPrice { get { return this.BuyPrice; } }
         public string getName { get { return this.Name; } }
+        public Product(string name)
+        {
+            Name = name;
+        }
     }
 }

@@ -19,12 +19,17 @@ namespace retailmanagement
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PhysicalProduct Toy = new PhysicalProduct();
+            PhysicalProduct Toy = new PhysicalProduct("toy");
             Toy.setBuyPrice(15);
             Toy.setSellPrice(20);
-            Toy.setStock(50);
             Toy.setSecurityTag(false);
+            Toy.setStock(1);
             this.productListBox.Items.Add(Toy.getName);
+            if (Toy.getStock == null)
+            {
+                this.productListBox.Items.Add("null");
+            }
+            else { this.productListBox.Items.Add(Toy.getStock); }
         }
     }
 }
