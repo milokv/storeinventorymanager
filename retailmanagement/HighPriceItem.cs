@@ -16,7 +16,14 @@ namespace retailmanagement
         public bool getNeedManager { get { return this.NeedManager; } }
         public HighPriceItem(string name) : base(name)
         {
-
+            LockedCase = false;
+            NeedManager = false;
         }
+        public HighPriceItem(string name, Nullable<int> stock) : base(name, stock)
+        {
+            LockedCase = false;
+            NeedManager = false;
+        }
+
     }
 }

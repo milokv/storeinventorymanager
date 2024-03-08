@@ -10,21 +10,23 @@ namespace retailmanagement
     {
         private bool Subscription;
         private bool LimitedStock;
-        private Nullable<int> Stock;
         public void setSubscription(bool Subscription) { this.Subscription = Subscription; }
         public void setLimitedStock(bool LimitedStock)
         { 
             this.LimitedStock = LimitedStock;
-            if (this.LimitedStock == false) {  this.Stock = null;  }
+            if (this.LimitedStock == false) { setStock(null);  }
         }
         public bool getSubscription { get { return this.Subscription; } }
         public bool getLimitedStock { get { return this.LimitedStock; } }
-        public void setStock(int stock) { this.Stock = stock; }
-        public Nullable<int> GetStock()
-        { 
-            if (this.LimitedStock == true)  {  return this.Stock;  }
-            else { return null; }
+        public DigitalProduct(string name) : base(name)
+        {
+            LimitedStock = false;
+            Subscription = false;
         }
-        public DigitalProduct(string name) : base(name) { }
+        public DigitalProduct(string name, Nullable<int> stock) : base(name, stock)
+        {
+            Subscription = false;
+            LimitedStock = false;
+        }
     }
 }
