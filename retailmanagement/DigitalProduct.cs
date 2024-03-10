@@ -26,7 +26,11 @@ namespace retailmanagement
         public DigitalProduct(string name, Nullable<int> stock) : base(name, stock)
         {
             Subscription = false;
-            LimitedStock = false;
+            if (stock != null)
+            {
+                LimitedStock = true;
+            }
+            else { LimitedStock = false; }
         }
     }
 }

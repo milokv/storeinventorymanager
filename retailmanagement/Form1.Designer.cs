@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.productListBox = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.limitedStockBox = new System.Windows.Forms.TextBox();
             this.nameBox = new System.Windows.Forms.TextBox();
             this.stockBox = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.subscriptionBox = new System.Windows.Forms.TextBox();
             this.buyPriceBox = new System.Windows.Forms.TextBox();
             this.sellPriceBox = new System.Windows.Forms.TextBox();
             this.lockedCaseBox = new System.Windows.Forms.TextBox();
@@ -47,6 +47,10 @@
             this.limitedLabel = new System.Windows.Forms.Label();
             this.managerLabel = new System.Windows.Forms.Label();
             this.subscriptionLabel = new System.Windows.Forms.Label();
+            this.submitButton = new System.Windows.Forms.Button();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.createButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // productListBox
@@ -57,13 +61,14 @@
             this.productListBox.Name = "productListBox";
             this.productListBox.Size = new System.Drawing.Size(322, 452);
             this.productListBox.TabIndex = 0;
+            this.productListBox.SelectedIndexChanged += new System.EventHandler(this.productListBox_SelectedIndexChanged);
             // 
-            // textBox1
+            // limitedStockBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(736, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 1;
+            this.limitedStockBox.Location = new System.Drawing.Point(736, 52);
+            this.limitedStockBox.Name = "limitedStockBox";
+            this.limitedStockBox.Size = new System.Drawing.Size(132, 22);
+            this.limitedStockBox.TabIndex = 1;
             // 
             // nameBox
             // 
@@ -79,12 +84,12 @@
             this.stockBox.Size = new System.Drawing.Size(132, 22);
             this.stockBox.TabIndex = 3;
             // 
-            // textBox4
+            // subscriptionBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(736, 115);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 22);
-            this.textBox4.TabIndex = 4;
+            this.subscriptionBox.Location = new System.Drawing.Point(736, 115);
+            this.subscriptionBox.Name = "subscriptionBox";
+            this.subscriptionBox.Size = new System.Drawing.Size(132, 22);
+            this.subscriptionBox.TabIndex = 4;
             // 
             // buyPriceBox
             // 
@@ -202,11 +207,51 @@
             this.subscriptionLabel.TabIndex = 19;
             this.subscriptionLabel.Text = "Subscription";
             // 
+            // submitButton
+            // 
+            this.submitButton.Location = new System.Drawing.Point(406, 246);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(227, 33);
+            this.submitButton.TabIndex = 20;
+            this.submitButton.Text = "Submit Changes";
+            this.submitButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(641, 303);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(227, 33);
+            this.deleteButton.TabIndex = 21;
+            this.deleteButton.Text = "Delete Item";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            // 
+            // createButton
+            // 
+            this.createButton.Location = new System.Drawing.Point(406, 303);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(227, 33);
+            this.createButton.TabIndex = 22;
+            this.createButton.Text = "Create New Item";
+            this.createButton.UseVisualStyleBackColor = true;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(641, 246);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(227, 33);
+            this.clearButton.TabIndex = 23;
+            this.clearButton.Text = "Clear Selection";
+            this.clearButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 504);
+            this.Controls.Add(this.clearButton);
+            this.Controls.Add(this.createButton);
+            this.Controls.Add(this.deleteButton);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.subscriptionLabel);
             this.Controls.Add(this.managerLabel);
             this.Controls.Add(this.limitedLabel);
@@ -221,10 +266,10 @@
             this.Controls.Add(this.lockedCaseBox);
             this.Controls.Add(this.sellPriceBox);
             this.Controls.Add(this.buyPriceBox);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.subscriptionBox);
             this.Controls.Add(this.stockBox);
             this.Controls.Add(this.nameBox);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.limitedStockBox);
             this.Controls.Add(this.productListBox);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -237,10 +282,10 @@
         #endregion
 
         private System.Windows.Forms.ListBox productListBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox limitedStockBox;
         private System.Windows.Forms.TextBox nameBox;
         private System.Windows.Forms.TextBox stockBox;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox subscriptionBox;
         private System.Windows.Forms.TextBox buyPriceBox;
         private System.Windows.Forms.TextBox sellPriceBox;
         private System.Windows.Forms.TextBox lockedCaseBox;
@@ -255,6 +300,10 @@
         private System.Windows.Forms.Label limitedLabel;
         private System.Windows.Forms.Label managerLabel;
         private System.Windows.Forms.Label subscriptionLabel;
+        private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 
