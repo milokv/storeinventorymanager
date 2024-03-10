@@ -15,6 +15,14 @@ namespace retailmanagement
         // new instance of ProductList class
         ProductList productList = new ProductList();
 
+        public bool addProduct(string name, Nullable<int> stock, int selectedClass)
+        {
+            if (selectedClass == 1) { productList.addProduct(new HighPriceItem(name, stock)); return true; }
+            else if (selectedClass == 2) { productList.addProduct(new PhysicalProduct(name, stock)); return true; }
+            else if (selectedClass == 3) { productList.addProduct(new DigitalProduct(name, stock)); return true; }
+            else { return false; }
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -98,6 +106,12 @@ namespace retailmanagement
                 lockedCaseBox.Text = highPriceItem.getLockedCase.ToString();
 
             }
+        }
+
+        private void addNewButton_Click(object sender, EventArgs e)
+        {
+            NewProductForm productForm = new NewProductForm();
+            productForm.ShowDialog();
         }
     }
 }

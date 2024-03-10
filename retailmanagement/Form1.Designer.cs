@@ -49,8 +49,7 @@
             this.subscriptionLabel = new System.Windows.Forms.Label();
             this.submitButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
-            this.createButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
+            this.addNewButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // productListBox
@@ -211,45 +210,36 @@
             // 
             this.submitButton.Location = new System.Drawing.Point(406, 246);
             this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(227, 33);
+            this.submitButton.Size = new System.Drawing.Size(132, 33);
             this.submitButton.TabIndex = 20;
             this.submitButton.Text = "Submit Changes";
             this.submitButton.UseVisualStyleBackColor = true;
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(641, 303);
+            this.deleteButton.Location = new System.Drawing.Point(736, 246);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(227, 33);
+            this.deleteButton.Size = new System.Drawing.Size(132, 33);
             this.deleteButton.TabIndex = 21;
             this.deleteButton.Text = "Delete Item";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
-            // createButton
+            // addNewButton
             // 
-            this.createButton.Location = new System.Drawing.Point(406, 303);
-            this.createButton.Name = "createButton";
-            this.createButton.Size = new System.Drawing.Size(227, 33);
-            this.createButton.TabIndex = 22;
-            this.createButton.Text = "Create New Item";
-            this.createButton.UseVisualStyleBackColor = true;
-            // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(641, 246);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(227, 33);
-            this.clearButton.TabIndex = 23;
-            this.clearButton.Text = "Clear Selection";
-            this.clearButton.UseVisualStyleBackColor = true;
+            this.addNewButton.Location = new System.Drawing.Point(570, 246);
+            this.addNewButton.Name = "addNewButton";
+            this.addNewButton.Size = new System.Drawing.Size(132, 33);
+            this.addNewButton.TabIndex = 22;
+            this.addNewButton.Text = "Add New Item";
+            this.addNewButton.UseVisualStyleBackColor = true;
+            this.addNewButton.Click += new System.EventHandler(this.addNewButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 504);
-            this.Controls.Add(this.clearButton);
-            this.Controls.Add(this.createButton);
+            this.Controls.Add(this.addNewButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.subscriptionLabel);
@@ -302,8 +292,7 @@
         private System.Windows.Forms.Label subscriptionLabel;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.Button deleteButton;
-        private System.Windows.Forms.Button createButton;
-        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button addNewButton;
     }
 }
 

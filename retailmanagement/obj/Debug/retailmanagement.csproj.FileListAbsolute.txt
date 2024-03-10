@@ -8,3 +8,4 @@ C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\D
 C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.csproj.CoreCompileInputs.cache
 C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.exe
 C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.pdb
+C:\Users\MiloKvarnbergRänk\source\repos\retailmanagement\retailmanagement\obj\Debug\retailmanagement.NewProductForm.resources
