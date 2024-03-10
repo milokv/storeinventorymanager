@@ -1,0 +1,1 @@
+# Store Inventory Manager for Retail or Online Shops

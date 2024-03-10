@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace retailmanagement
 {
+    // parent class for all products
+    // contains attributes and methods concerning buy and sell prices, names and stock
     internal class Product
     {
-        private int SellPrice;
-        private int BuyPrice;
-        private string Name;
-        private Nullable<int> Stock; //stock kan vara null (inget värde) om det inte anges.
+        private int SellPrice; // price product is sold for
+        private int BuyPrice; // price product is bought for
+        private string Name; // name of product
+        private Nullable<int> Stock; // stock can have null as value, if it for some reason isn't specified
 
-
+        // standard get and set methods for attributes + constructors for name and name + stock
         public void setSellPrice(int price) {  this.SellPrice = price;  }
         public void setBuyPrice(int price) {  this.BuyPrice = price; }
         public void setStock(Nullable<int> stock) { this.Stock = stock; }

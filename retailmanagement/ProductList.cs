@@ -13,7 +13,7 @@ namespace retailmanagement
         // create list with all products and their respective values using constructors
         private List<Product> productList = new List<Product>();
 
-        // get and set for productList
+        // get and set methods for productList
         public void addProduct(Product product) { productList.Add(product); }
         public List<Product> getProductList { get { return productList; } }
     }
