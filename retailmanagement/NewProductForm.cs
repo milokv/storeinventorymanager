@@ -56,6 +56,15 @@ namespace retailmanagement
 
         private void createButton_Click(object sender, EventArgs e)
         {
+            if (selectedClass == 0) { errorLabel.Text = "Error, please check \n inputs and selected values"; }
+            else
+            {
+                Form1 form1 = (Form1)this.Owner;
+                errorLabel.Text = string.Empty;
+                bool output = form1.addProduct(nameBox.Text, int.Parse(stockBox.Text), selectedClass);
+                if (output != true) { errorLabel.Text = "Error when adding class"; }
+                else if (output == true) { this.Close(); form1.loadListBox(); }
+            }
         }
     }
 }

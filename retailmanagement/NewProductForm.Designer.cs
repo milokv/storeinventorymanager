@@ -48,6 +48,7 @@
             this.securityTagSelector = new System.Windows.Forms.ComboBox();
             this.lockedCaseSelector = new System.Windows.Forms.ComboBox();
             this.createButton = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // classSelector
@@ -224,11 +225,21 @@
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.Location = new System.Drawing.Point(22, 113);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 16);
+            this.errorLabel.TabIndex = 44;
+            this.errorLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // NewProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.lockedCaseSelector);
             this.Controls.Add(this.securityTagSelector);
@@ -279,5 +290,6 @@
         private System.Windows.Forms.ComboBox securityTagSelector;
         private System.Windows.Forms.ComboBox lockedCaseSelector;
         private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

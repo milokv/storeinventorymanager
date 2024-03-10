@@ -33,15 +33,18 @@ namespace retailmanagement
 
             productList.addProduct(new HighPriceItem("Rolex", 14));
             productList.addProduct(new DigitalProduct("Fortnite Giftcard", null));
-
+            loadListBox();
+        }
+        public void loadListBox()
+        {
             // add products in List<Product> to the listbox, displaying the name in the listbox
+            productListBox.Items.Clear();
             List<Product> products = productList.getProductList;
             foreach (Product product in products)
             {
                 productListBox.Items.Add(product.getName);
             }
         }
-        
         private void productListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // check if a product is selected in listBox, run UpdateTextBoxes with the selected product
@@ -111,6 +114,7 @@ namespace retailmanagement
         private void addNewButton_Click(object sender, EventArgs e)
         {
             NewProductForm productForm = new NewProductForm();
+            productForm.Owner = this; // Set Form1 as the owner
             productForm.ShowDialog();
         }
     }
