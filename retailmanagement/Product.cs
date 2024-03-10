@@ -13,7 +13,7 @@ namespace retailmanagement
         private int SellPrice; // price product is sold for
         private int BuyPrice; // price product is bought for
         private string Name; // name of product
-        private Nullable<int> Stock; // stock can have null as value, if it for some reason isn't specified
+        private Nullable<int> Stock = null; // stock is null if not specified otherwise
 
         // standard get and set methods for attributes + constructors for name and name + stock
         public void setSellPrice(int price) {  this.SellPrice = price;  }
@@ -26,7 +26,6 @@ namespace retailmanagement
         public Product(string name)
         {
             Name = name;
-            Stock = null;
         }
         public Product(string name, Nullable<int> stock)
         {

@@ -40,11 +40,13 @@ namespace retailmanagement
             if (productListBox.SelectedIndex != -1)
             {
                 Product selectedProduct = productList.getProductList[productListBox.SelectedIndex];
+                // clears textboxes, then updates their text with the values from the selected product
                 ClearTextBoxes();
                 UpdateTextBoxes(selectedProduct);
             }
         }
 
+        // clears all text in textBoxes
         private void ClearTextBoxes()
         {
             nameBox.Text = string.Empty;

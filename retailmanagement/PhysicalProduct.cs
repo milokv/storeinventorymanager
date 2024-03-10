@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace retailmanagement
 {
+    // this class is for Physical Products, that dont fall under the "HighPriceItem" category
+    // it contains an attribute for whether a product has a security/alarm tag
+    // and get/set methods for it, + constructors
     internal class PhysicalProduct : Product
     {
-        // variabel ifall den har en säkerhetstagg, tex larm (SecurityTag)
-        private bool SecurityTag;
+        private bool SecurityTag = false; // defaults as false
         public void setSecurityTag(bool SecurityTag) { this.SecurityTag = SecurityTag; }
         public bool getSecurityTag { get { return this.SecurityTag; } }
         public PhysicalProduct(string name, int stock, bool securityTag) : base(name, stock)
@@ -18,12 +20,9 @@ namespace retailmanagement
         }
         public PhysicalProduct(string name, Nullable<int> stock) : base(name, stock)
         {
-            SecurityTag = false; //om inte securitytag anges är det false som default.
         }
         public PhysicalProduct(string name) : base(name)
         {
-            //om inget anges utom namn antas det att Stock inte har något värde, och ingen security tag finns.
-            SecurityTag = false; 
         }
     }
 }
