@@ -40,13 +40,29 @@ namespace retailmanagement
             if (productListBox.SelectedIndex != -1)
             {
                 Product selectedProduct = productList.getProductList[productListBox.SelectedIndex];
+                ClearTextBoxes();
                 UpdateTextBoxes(selectedProduct);
             }
+        }
+
+        private void ClearTextBoxes()
+        {
+            nameBox.Text = string.Empty;
+            stockBox.Text = string.Empty;
+            buyPriceBox.Text = string.Empty;
+            sellPriceBox.Text = string.Empty;
+            securityTagBox.Text = string.Empty;
+            subscriptionBox.Text = string.Empty;
+            limitedStockBox.Text = string.Empty;
+            needManagerBox.Text = string.Empty;
+            lockedCaseBox.Text = string.Empty;
+
         }
 
         // display values of the selected products attributes in the corresponding textBoxes.
         private void UpdateTextBoxes(Product product)
         {
+
             nameBox.Text = product.getName;
 
             // checks if stock attribute has a value, and displays it. if value is null, displays "null" as stock.
@@ -63,12 +79,14 @@ namespace retailmanagement
                 securityTagBox.Text = physicalProduct.getSecurityTag.ToString();
             }
 
+            // same as before, but with the DigitalProduct class
             if (product is DigitalProduct)
             {
                 DigitalProduct digitalProduct = (DigitalProduct)product;
                 subscriptionBox.Text = digitalProduct.getSubscription.ToString();
                 limitedStockBox.Text = digitalProduct?.getLimitedStock.ToString();
             }
+
 
             // same as before, but with the HighPriceItem class
             if (product is HighPriceItem)
@@ -78,10 +96,6 @@ namespace retailmanagement
                 lockedCaseBox.Text = highPriceItem.getLockedCase.ToString();
 
             }
-
-
-
-
         }
     }
 }
