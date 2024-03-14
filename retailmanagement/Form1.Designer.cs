@@ -223,6 +223,7 @@
             this.deleteButton.TabIndex = 21;
             this.deleteButton.Text = "Delete Item";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // addNewButton
             // 

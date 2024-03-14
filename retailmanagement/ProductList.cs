@@ -16,5 +16,6 @@ namespace retailmanagement
         // get and set methods for productList
         public void addProduct(Product product) { productList.Add(product); }
         public List<Product> getProductList { get { return productList; } }
+        public void removeProduct(Product product) { productList.Remove(product); }
     }
 }

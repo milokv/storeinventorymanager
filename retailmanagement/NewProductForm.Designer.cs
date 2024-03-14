@@ -49,6 +49,7 @@
             this.lockedCaseSelector = new System.Windows.Forms.ComboBox();
             this.createButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // classSelector
@@ -136,11 +137,11 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(317, 50);
+            this.nameLabel.Location = new System.Drawing.Point(308, 50);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(44, 16);
+            this.nameLabel.Size = new System.Drawing.Size(52, 16);
             this.nameLabel.TabIndex = 28;
-            this.nameLabel.Text = "Name";
+            this.nameLabel.Text = "* Name";
             // 
             // sellPriceBox
             // 
@@ -234,11 +235,21 @@
             this.errorLabel.TabIndex = 44;
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(322, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 16);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Fields with a \" * \" are required";
+            // 
             // NewProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.createButton);
             this.Controls.Add(this.lockedCaseSelector);
@@ -291,5 +302,6 @@
         private System.Windows.Forms.ComboBox lockedCaseSelector;
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

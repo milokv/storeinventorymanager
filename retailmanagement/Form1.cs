@@ -17,9 +17,9 @@ namespace retailmanagement
 
         public bool addProduct(string name, Nullable<int> stock, int selectedClass)
         {
-            if (selectedClass == 1) { productList.addProduct(new HighPriceItem(name, stock)); return true; }
+            if (selectedClass == 1) { productList.addProduct(new DigitalProduct(name, stock)); return true; }
             else if (selectedClass == 2) { productList.addProduct(new PhysicalProduct(name, stock)); return true; }
-            else if (selectedClass == 3) { productList.addProduct(new DigitalProduct(name, stock)); return true; }
+            else if (selectedClass == 3) { productList.addProduct(new HighPriceItem(name, stock)); return true; }
             else { return false; }
         }
 
@@ -113,9 +113,22 @@ namespace retailmanagement
 
         private void addNewButton_Click(object sender, EventArgs e)
         {
+            //open a new form to create a new product, with Form1 as owner
             NewProductForm productForm = new NewProductForm();
             productForm.Owner = this; // Set Form1 as the owner
             productForm.ShowDialog();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            //checka if any product is selected, and remove that product and load the listbox again.
+            if (productListBox.SelectedIndex != -1)
+            {
+                Product selectedProduct = productList.getProductList[productListBox.SelectedIndex];
+                // clears textboxes, then updates their text with the values from the selected product
+                productList.removeProduct(selectedProduct);
+                loadListBox();
+            }
         }
     }
 }

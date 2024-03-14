@@ -54,6 +54,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="HighPriceItem.cs" />
+    <Compile Include="InputChecker.cs" />
     <Compile Include="NewProductForm.cs">
       <SubType>Form</SubType>
     </Compile>

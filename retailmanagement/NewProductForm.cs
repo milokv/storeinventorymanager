@@ -15,6 +15,7 @@ namespace retailmanagement
         List<ComboBox> dropdowns = new List<ComboBox>(); // list containing all bool dropdowns
         private bool submitReady = false; // bool for checking if all conditions are fulfilled, and new item is ready to be created
         private int selectedClass;
+        InputChecker inputChecker = new InputChecker();
         public NewProductForm()
         {
             InitializeComponent();
@@ -57,6 +58,8 @@ namespace retailmanagement
         private void createButton_Click(object sender, EventArgs e)
         {
             if (selectedClass == 0) { errorLabel.Text = "Error, please check \n inputs and selected values"; }
+        //    else if (inputChecker.inputChecker(nameBox.Text, 1) is bool) { errorLabel.Text = "Error, please check \n inputs and selected values"; }
+        //funkar inte just nu    else if (inputChecker.inputChecker(int.Parse(stockBox.Text), 2) is bool) { errorLabel.Text = "Error, please check \n inputs and selected values"; }
             else
             {
                 Form1 form1 = (Form1)this.Owner;
