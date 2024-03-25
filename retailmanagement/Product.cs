@@ -19,6 +19,7 @@ namespace retailmanagement
         public void setSellPrice(int price) {  this.SellPrice = price;  }
         public void setBuyPrice(int price) {  this.BuyPrice = price; }
         public void setStock(Nullable<int> stock) { this.Stock = stock; }
+        public void setName(string name ) { this.Name = name; }
         public int getSellPrice {  get { return this.SellPrice; } }
         public int getBuyPrice { get { return this.BuyPrice; } }
         public Nullable<int> getStock { get { return this.Stock; } }

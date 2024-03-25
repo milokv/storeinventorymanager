@@ -121,13 +121,41 @@ namespace retailmanagement
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            //checka if any product is selected, and remove that product and load the listbox again.
+            //check if any product is selected, and remove that product and load the listbox again.
             if (productListBox.SelectedIndex != -1)
             {
                 Product selectedProduct = productList.getProductList[productListBox.SelectedIndex];
                 // clears textboxes, then updates their text with the values from the selected product
                 productList.removeProduct(selectedProduct);
                 loadListBox();
+            }
+        }
+
+        //method to change the attributes of selected product
+        //checks if the inputted value is correct datatype, and then submits changes
+        private void updateProduct(Product product)
+        {
+            InputChecker inputChecker = new InputChecker();
+            if (inputChecker.inputChecker(nameBox.Text, 1) == true) { product.setName(nameBox.Text); }
+            string tryStock = stockBox.Text;
+            int stockResult;
+            if (int.TryParse(tryStock,out stockResult) == true)
+            {
+                product.setStock(stockResult);
+            }
+        }
+
+        //runs updateProduct when submit button is clicked and then loads the list and textboxes again to show changes
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            //check if any product is selected, and remove that product and load the listbox again.
+            if (productListBox.SelectedIndex != -1)
+            {
+                Product selectedProduct = productList.getProductList[productListBox.SelectedIndex];
+                // clears textboxes, then updates their text with the values from the selected product
+                updateProduct(selectedProduct);
+                loadListBox();
+                UpdateTextBoxes(selectedProduct);
             }
         }
     }

@@ -25,17 +25,17 @@ namespace retailmanagement
         //just nu inte fungerande, försöker hitta bättre lösning.
         public dynamic inputChecker(string input, int type)
         {
-            if (type == 1) { return input; }
+            if (type == 1) { return true; }
             else { return false; }
         }
         public dynamic inputChecker(int input, int type)
         {
-            if (type == 2) { return input; }
+            if (type == 2) { return true; }
             else { return false; }
         }
         public dynamic inputChecker(bool input, int type)
         {
-            if (type == 3) { return input; }
+            if (type == 3) { return true; }
             else { return "error"; }
         }
     }
