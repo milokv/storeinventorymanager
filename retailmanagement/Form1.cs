@@ -32,7 +32,7 @@ namespace retailmanagement
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            productList.addProduct(new HighPriceItem("Rolex", 14));
+            productList.addProduct(new HighPriceItem("Rolex", 14, true));
             productList.addProduct(new DigitalProduct("Fortnite Giftcard", null));
             loadListBox();
             // add bool dropdowns to dropdown list
@@ -159,6 +159,14 @@ namespace retailmanagement
             string tryStock = stockBox.Text;
             int stockResult;
             if (int.TryParse(tryStock,out stockResult) == true) { product.setStock(stockResult); }
+            if (product is HighPriceItem)
+            {
+                HighPriceItem highPriceItem = (HighPriceItem)product;
+                if (needManagerBox.SelectedIndex == 1) { highPriceItem.setNeedManager(true); }
+                else { highPriceItem.setNeedManager(false); }
+                if (lockedCaseBox.SelectedIndex == 1) { highPriceItem.setLockedCase(true); }
+                else { highPriceItem.setLockedCase(false); }
+            }
         }
 
         //runs updateProduct when submit button is clicked and then loads the list and textboxes again to show changes

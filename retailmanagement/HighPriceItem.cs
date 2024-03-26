@@ -21,6 +21,9 @@ namespace retailmanagement
         public bool getNeedManager { get { return this.NeedManager; } }
         public HighPriceItem(string name) : base(name) { }
         public HighPriceItem(string name, Nullable<int> stock) : base(name, stock) { }
-
+        public HighPriceItem(string name, Nullable<int> stock, bool needManager) : base(name, stock)
+        {
+            NeedManager = needManager;
+        }
     }
 }
