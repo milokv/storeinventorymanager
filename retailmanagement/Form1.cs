@@ -124,7 +124,7 @@ namespace retailmanagement
                 HighPriceItem highPriceItem = (HighPriceItem)product;
                 if (highPriceItem.getNeedManager == true) { needManagerBox.SelectedIndex = 1; }
                 else { needManagerBox.SelectedIndex = 0; }
-                if (highPriceItem.getSecurityTag == true) { lockedCaseBox.SelectedIndex = 1; }
+                if (highPriceItem.getLockedCase == true) { lockedCaseBox.SelectedIndex = 1; }
                 else { lockedCaseBox.SelectedIndex = 0; }
 
             }
@@ -159,13 +159,31 @@ namespace retailmanagement
             string tryStock = stockBox.Text;
             int stockResult;
             if (int.TryParse(tryStock,out stockResult) == true) { product.setStock(stockResult); }
+
+            //check if product is physical product, and if so, change if values on dropdown are changed
+            if (product is PhysicalProduct)
+            {
+                PhysicalProduct physicalProduct = (PhysicalProduct)product;
+                if (securityTagBox.SelectedIndex == 1) { physicalProduct.setSecurityTag(true); }
+                else { physicalProduct.setSecurityTag(false); }
+            }
+            // same as before, but with the DigitalProduct class
+            if (product is DigitalProduct)
+            {
+                DigitalProduct digitalProduct = (DigitalProduct)product;
+                if (subscriptionBox.SelectedIndex == 1) { digitalProduct.setSubscription(true); }
+                else { digitalProduct.setSubscription(false); }
+                if (limitedStockBox.SelectedIndex == 1) { digitalProduct.setLimitedStock(true); }
+                else { digitalProduct.setLimitedStock(false); }
+            }
+            // same as before, but with the HighPriceItem class
             if (product is HighPriceItem)
             {
                 HighPriceItem highPriceItem = (HighPriceItem)product;
-                if (needManagerBox.SelectedIndex == 1) { highPriceItem.setNeedManager(true); }
-                else { highPriceItem.setNeedManager(false); }
                 if (lockedCaseBox.SelectedIndex == 1) { highPriceItem.setLockedCase(true); }
                 else { highPriceItem.setLockedCase(false); }
+                if (needManagerBox.SelectedIndex == 1) { highPriceItem.setNeedManager(true); }
+                else { highPriceItem.setNeedManager(false); }
             }
         }
 
