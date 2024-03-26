@@ -139,10 +139,7 @@ namespace retailmanagement
             if (inputChecker.inputChecker(nameBox.Text, 1) == true) { product.setName(nameBox.Text); }
             string tryStock = stockBox.Text;
             int stockResult;
-            if (int.TryParse(tryStock,out stockResult) == true)
-            {
-                product.setStock(stockResult);
-            }
+            if (int.TryParse(tryStock,out stockResult) == true) { product.setStock(stockResult); }
         }
 
         //runs updateProduct when submit button is clicked and then loads the list and textboxes again to show changes
