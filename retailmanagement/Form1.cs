@@ -13,6 +13,7 @@ namespace retailmanagement
     public partial class Form1 : Form
     {
         // new instance of ProductList class
+        List<ComboBox> dropdowns = new List<ComboBox>();
         ProductList productList = new ProductList();
 
         public bool addProduct(string name, Nullable<int> stock, int selectedClass)
@@ -34,6 +35,19 @@ namespace retailmanagement
             productList.addProduct(new HighPriceItem("Rolex", 14));
             productList.addProduct(new DigitalProduct("Fortnite Giftcard", null));
             loadListBox();
+            // add bool dropdowns to dropdown list
+            dropdowns.Add(limitedStockBox);
+            dropdowns.Add(subscriptionBox);
+            dropdowns.Add(lockedCaseBox);
+            dropdowns.Add(securityTagBox);
+            dropdowns.Add(needManagerBox);
+
+            foreach (ComboBox comboBox in dropdowns) // add true/false to all bool dropdowns, and show false as default
+            {
+                comboBox.Items.Add("False");
+                comboBox.Items.Add("True");
+                comboBox.SelectedIndex = 0;
+            }
         }
         public void loadListBox()
         {
@@ -64,11 +78,11 @@ namespace retailmanagement
             stockBox.Text = string.Empty;
             buyPriceBox.Text = string.Empty;
             sellPriceBox.Text = string.Empty;
-            securityTagBox.Text = string.Empty;
-            subscriptionBox.Text = string.Empty;
-            limitedStockBox.Text = string.Empty;
-            needManagerBox.Text = string.Empty;
-            lockedCaseBox.Text = string.Empty;
+            securityTagBox.SelectedIndex = 0;
+            subscriptionBox.SelectedIndex = 0;
+            limitedStockBox.SelectedIndex = 0;
+            needManagerBox.SelectedIndex = 0;
+            lockedCaseBox.SelectedIndex = 0;
 
         }
 
@@ -89,15 +103,18 @@ namespace retailmanagement
             if (product is PhysicalProduct)
             {
                 PhysicalProduct physicalProduct = (PhysicalProduct)product;
-                securityTagBox.Text = physicalProduct.getSecurityTag.ToString();
+                if (physicalProduct.getSecurityTag == true) { securityTagBox.SelectedIndex = 1; }
+                else {  securityTagBox.SelectedIndex = 0; }
             }
 
             // same as before, but with the DigitalProduct class
             if (product is DigitalProduct)
             {
                 DigitalProduct digitalProduct = (DigitalProduct)product;
-                subscriptionBox.Text = digitalProduct.getSubscription.ToString();
-                limitedStockBox.Text = digitalProduct?.getLimitedStock.ToString();
+                if (digitalProduct.getSubscription == true) { subscriptionBox.SelectedIndex = 1; }
+                else { subscriptionBox.SelectedIndex = 0; }
+                if (digitalProduct.getLimitedStock == true) { limitedStockBox.SelectedIndex = 1; }
+                else { limitedStockBox.SelectedIndex = 0; }
             }
 
 
@@ -105,8 +122,10 @@ namespace retailmanagement
             if (product is HighPriceItem)
             {
                 HighPriceItem highPriceItem = (HighPriceItem)product;
-                needManagerBox.Text = highPriceItem.getNeedManager.ToString();
-                lockedCaseBox.Text = highPriceItem.getLockedCase.ToString();
+                if (highPriceItem.getNeedManager == true) { needManagerBox.SelectedIndex = 1; }
+                else { needManagerBox.SelectedIndex = 0; }
+                if (highPriceItem.getSecurityTag == true) { lockedCaseBox.SelectedIndex = 1; }
+                else { lockedCaseBox.SelectedIndex = 0; }
 
             }
         }
