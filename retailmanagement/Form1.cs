@@ -98,6 +98,7 @@ namespace retailmanagement
 
             buyPriceBox.Text = product.getBuyPrice.ToString();
             sellPriceBox.Text = product.getSellPrice.ToString();
+            if (product.getStock != null) { limitedStockBox.SelectedIndex = 1; }
 
             // check if product is of the PhysicalProduct class, and if so, display attributes from that class
             if (product is PhysicalProduct)
@@ -159,6 +160,8 @@ namespace retailmanagement
             string tryStock = stockBox.Text;
             int stockResult;
             if (int.TryParse(tryStock,out stockResult) == true) { product.setStock(stockResult); }
+            else if (stockBox.Text == "") { product.setStock(null); }
+            else if (stockBox.Text == "null") { product.setStock(null); }
 
             //check if product is physical product, and if so, change if values on dropdown are changed
             if (product is PhysicalProduct)
