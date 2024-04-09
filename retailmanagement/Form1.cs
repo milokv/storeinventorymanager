@@ -162,16 +162,19 @@ namespace retailmanagement
             string tryStock = stockBox.Text;
             int stockResult;
             if (int.TryParse(tryStock,out stockResult) == true) { product.setStock(stockResult); }
+            // if input is blank or null stock will be nullified
             else if (stockBox.Text == "") { product.setStock(null); }
             else if (stockBox.Text == "null") { product.setStock(null); }
             string tryBuyPrice = buyPriceBox.Text;
             int buyResult;
             if (int.TryParse(tryBuyPrice,out buyResult) == true) { product.setBuyPrice(buyResult); }
+            // if no input is made on buyPrice, it will default to 0
             else if (buyPriceBox.Text == "") { product.setBuyPrice(0); }
             else { product.setBuyPrice(0); }
             string trySellPrice = sellPriceBox.Text;
             int sellResult;
             if (int.TryParse(trySellPrice, out sellResult) == true) { product.setSellPrice(sellResult); }
+            // if no input is made on sellPrice, it will default to 0
             else if (sellPriceBox.Text == "") { product.setSellPrice(0); }
             else { product.setSellPrice(0); }
 

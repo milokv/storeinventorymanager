@@ -43,9 +43,8 @@ namespace retailmanagement
 
         private void createButton_Click(object sender, EventArgs e)
         {
+            // create new item, error handling to handle blank or invalid inputs on stock and name.
             if (selectedClass == 0) { errorLabel.Text = "Error, please check \n inputs and selected values"; }
-        //    else if (inputChecker.inputChecker(nameBox.Text, 1) is bool) { errorLabel.Text = "Error, please check \n inputs and selected values"; }
-        //funkar inte just nu    else if (inputChecker.inputChecker(int.Parse(stockBox.Text), 2) is bool) { errorLabel.Text = "Error, please check \n inputs and selected values"; }
             else
             {
                 Form1 form1 = (Form1)this.Owner;

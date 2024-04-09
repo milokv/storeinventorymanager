@@ -50,6 +50,7 @@
             this.subscriptionBox = new System.Windows.Forms.ComboBox();
             this.needManagerBox = new System.Windows.Forms.ComboBox();
             this.limitedStockBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // productListBox
@@ -104,27 +105,27 @@
             this.stockLabel.AutoSize = true;
             this.stockLabel.Location = new System.Drawing.Point(617, 33);
             this.stockLabel.Name = "stockLabel";
-            this.stockLabel.Size = new System.Drawing.Size(41, 16);
+            this.stockLabel.Size = new System.Drawing.Size(49, 16);
             this.stockLabel.TabIndex = 12;
-            this.stockLabel.Text = "Stock";
+            this.stockLabel.Text = "* Stock";
             // 
             // buyLabel
             // 
             this.buyLabel.AutoSize = true;
             this.buyLabel.Location = new System.Drawing.Point(440, 96);
             this.buyLabel.Name = "buyLabel";
-            this.buyLabel.Size = new System.Drawing.Size(64, 16);
+            this.buyLabel.Size = new System.Drawing.Size(72, 16);
             this.buyLabel.TabIndex = 13;
-            this.buyLabel.Text = "Buy Price";
+            this.buyLabel.Text = "* Buy Price";
             // 
             // sellLabel
             // 
             this.sellLabel.AutoSize = true;
             this.sellLabel.Location = new System.Drawing.Point(603, 96);
             this.sellLabel.Name = "sellLabel";
-            this.sellLabel.Size = new System.Drawing.Size(64, 16);
+            this.sellLabel.Size = new System.Drawing.Size(72, 16);
             this.sellLabel.TabIndex = 14;
-            this.sellLabel.Text = "Sell Price";
+            this.sellLabel.Text = "* Sell Price";
             // 
             // lockedLabel
             // 
@@ -246,11 +247,22 @@
             this.limitedStockBox.Size = new System.Drawing.Size(132, 24);
             this.limitedStockBox.TabIndex = 27;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(406, 337);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(471, 16);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "* If Stock, Buy Price or Sell Price is set as a string, changes to it won\'t be sa" +
+    "ved.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(930, 504);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.limitedStockBox);
             this.Controls.Add(this.needManagerBox);
             this.Controls.Add(this.subscriptionBox);
@@ -305,6 +317,7 @@
         private System.Windows.Forms.ComboBox subscriptionBox;
         private System.Windows.Forms.ComboBox needManagerBox;
         private System.Windows.Forms.ComboBox limitedStockBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 
