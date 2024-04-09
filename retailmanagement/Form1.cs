@@ -116,7 +116,9 @@ namespace retailmanagement
                 else { subscriptionBox.SelectedIndex = 0; }
                 if (digitalProduct.getLimitedStock == true) { limitedStockBox.SelectedIndex = 1; }
                 else { limitedStockBox.SelectedIndex = 0; }
+                securityTagBox.SelectedIndex = -1;
             }
+            else { subscriptionBox.SelectedIndex = -1; limitedStockBox.SelectedIndex= -1; }
 
 
             // same as before, but with the HighPriceItem class
@@ -127,8 +129,8 @@ namespace retailmanagement
                 else { needManagerBox.SelectedIndex = 0; }
                 if (highPriceItem.getLockedCase == true) { lockedCaseBox.SelectedIndex = 1; }
                 else { lockedCaseBox.SelectedIndex = 0; }
-
             }
+            else { needManagerBox.SelectedIndex = -1; lockedCaseBox.SelectedIndex= -1; }
         }
 
         private void addNewButton_Click(object sender, EventArgs e)
@@ -162,6 +164,16 @@ namespace retailmanagement
             if (int.TryParse(tryStock,out stockResult) == true) { product.setStock(stockResult); }
             else if (stockBox.Text == "") { product.setStock(null); }
             else if (stockBox.Text == "null") { product.setStock(null); }
+            string tryBuyPrice = buyPriceBox.Text;
+            int buyResult;
+            if (int.TryParse(tryBuyPrice,out buyResult) == true) { product.setBuyPrice(buyResult); }
+            else if (buyPriceBox.Text == "") { product.setBuyPrice(0); }
+            else { product.setBuyPrice(0); }
+            string trySellPrice = sellPriceBox.Text;
+            int sellResult;
+            if (int.TryParse(trySellPrice, out sellResult) == true) { product.setSellPrice(sellResult); }
+            else if (sellPriceBox.Text == "") { product.setSellPrice(0); }
+            else { product.setSellPrice(0); }
 
             //check if product is physical product, and if so, change if values on dropdown are changed
             if (product is PhysicalProduct)

@@ -12,7 +12,6 @@ namespace retailmanagement
 {
     public partial class NewProductForm : Form
     {
-        List<ComboBox> dropdowns = new List<ComboBox>(); // list containing all bool dropdowns
         private bool submitReady = false; // bool for checking if all conditions are fulfilled, and new item is ready to be created
         private int selectedClass;
         InputChecker inputChecker = new InputChecker();
@@ -28,19 +27,6 @@ namespace retailmanagement
 
             classSelector.SelectedIndex = 0; // show "select product type" when form is loaded
 
-            // add bool dropdowns to dropdown list
-            dropdowns.Add(limitedStockSelector);
-            dropdowns.Add(subscriptionSelector);
-            dropdowns.Add(lockedCaseSelector);
-            dropdowns.Add(securityTagSelector);
-            dropdowns.Add(needManagerSelector);
-
-            foreach (ComboBox comboBox in dropdowns) // add true/false to all bool dropdowns, and show false as default
-            {
-                comboBox.Items.Add("False");
-                comboBox.Items.Add("True");
-                comboBox.SelectedIndex = 0;
-            }
 
         }
 
@@ -64,9 +50,25 @@ namespace retailmanagement
             {
                 Form1 form1 = (Form1)this.Owner;
                 errorLabel.Text = string.Empty;
-                bool output = form1.addProduct(nameBox.Text, int.Parse(stockBox.Text), selectedClass);
-                if (output != true) { errorLabel.Text = "Error when adding class"; }
-                else if (output == true) { this.Close(); form1.loadListBox(); }
+                string tryStock = stockBox.Text;
+                int stockResult;
+                if (int.TryParse(tryStock, out stockResult) != true)
+                {
+                    if (string.IsNullOrEmpty(stockBox.Text))
+                    {
+                        bool output = form1.addProduct(nameBox.Text, null, selectedClass);
+                        if (output != true) { errorLabel.Text = "Error when adding item."; }
+                        else if (output == true) { this.Close(); form1.loadListBox(); }
+                    }
+                    else { errorLabel.Text = "Please make Stock an integer or leave it as empty."; }
+                }
+                else if (stockBox.Text.Length > 0)
+                {
+                    bool output = form1.addProduct(nameBox.Text, stockResult, selectedClass);
+                    if (output != true) { errorLabel.Text = "Error when adding item."; }
+                    else if (output == true) { this.Close(); form1.loadListBox(); }
+                }
+                else { errorLabel.Text = "Error when adding item."; }
             }
         }
     }
